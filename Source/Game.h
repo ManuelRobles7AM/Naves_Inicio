@@ -1,4 +1,5 @@
-
+#include <SDL.h>
+#include <SDL_image.h>
 class CGame
 {
 public:
@@ -17,5 +18,8 @@ public:
 	};
 
 private:
+	void Iniciando();
+	SDL_Surface *screen;
+	SDL_Surface *nave;
 	Estado estado;
 };
