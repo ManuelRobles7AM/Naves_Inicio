@@ -4,10 +4,15 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+<<<<<<< HEAD
 CGame::CGame()
 {
 	estado = Estado::ESTADO_INICIANDO;// Estado inicial del juego (corregido)
 	atexit(SDL_Quit); 
+=======
+CGame::CGame(){
+	estado = Estado::ESTADO_INICIANDO;
+>>>>>>> origin/master
 }
 
 // Con esta función eliminaremos todos los elementos en pantalla
