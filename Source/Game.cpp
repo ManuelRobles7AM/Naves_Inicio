@@ -6,10 +6,14 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of beb75e7... error githubsd
 CGame::CGame()
 {
 	estado = Estado::ESTADO_INICIANDO;// Estado inicial del juego (corregido)
 	atexit(SDL_Quit); 
+<<<<<<< HEAD
 =======
 CGame::CGame(){
 	estado = Estado::ESTADO_INICIANDO;
@@ -18,6 +22,8 @@ CGame::CGame(){
 CGame::CGame(){
 	estado = Estado::ESTADO_INICIANDO;
 >>>>>>> origin/master
+=======
+>>>>>>> parent of beb75e7... error githubsd
 }
 
 // Con esta función eliminaremos todos los elementos en pantalla
