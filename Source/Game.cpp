@@ -4,26 +4,11 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of beb75e7... error githubsd
+
 CGame::CGame()
 {
 	estado = Estado::ESTADO_INICIANDO;// Estado inicial del juego (corregido)
 	atexit(SDL_Quit); 
-<<<<<<< HEAD
-=======
-CGame::CGame(){
-	estado = Estado::ESTADO_INICIANDO;
->>>>>>> origin/master
-=======
-CGame::CGame(){
-	estado = Estado::ESTADO_INICIANDO;
->>>>>>> origin/master
-=======
->>>>>>> parent of beb75e7... error githubsd
 }
 
 // Con esta función eliminaremos todos los elementos en pantalla
