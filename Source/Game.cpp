@@ -5,10 +5,15 @@
 #include <SDL_image.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 CGame::CGame()
 {
 	estado = Estado::ESTADO_INICIANDO;// Estado inicial del juego (corregido)
 	atexit(SDL_Quit); 
+=======
+CGame::CGame(){
+	estado = Estado::ESTADO_INICIANDO;
+>>>>>>> origin/master
 =======
 CGame::CGame(){
 	estado = Estado::ESTADO_INICIANDO;
