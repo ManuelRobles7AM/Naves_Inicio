@@ -7,19 +7,21 @@
 
 CGame::CGame()
 {
-	estado = Estado::ESTADO_INICIANDO;// Estado inicial del juego (corregido)
+	estado = ESTADO_INICIANDO;// Estado inicial del juego (corregido)
 	atexit(SDL_Quit); 
 }
 
+
 // Con esta función eliminaremos todos los elementos en pantalla
-void CGame::Finalize(){
+void CGame::Finalize()
+{
 	SDL_Quit();
 }
 
 void CGame::Iniciando()
 {
 	
-				if (SDL_Init(SDL_INIT_VIDEO)<0)
+				if (SDL_Init(SDL_INIT_VIDEO))
 				
 				{
 					printf("Eror %s ", SDL_GetError());
@@ -58,22 +60,25 @@ bool CGame::Start()
 					fuente.w=321;
 					fuente.h=16;
 				SDL_Rect destino;
-				    destino.x=200;
-					destino.y=200;
-					destino.w=200;
-					destino.h=200;
+				    destino.x=100;
+					destino.y=100;
+					destino.w=fuente.w;
+					destino.h=fuente.h;
 				SDL_BlitSurface(nave, &fuente, screen, &destino);
 
 			};
+
+			estado=Estado::ESTADO_MENU;
+			break;
 	
 		case Estado::ESTADO_MENU: //MENU
 			break;
 		case Estado::ESTADO_JUGANDO://JUGANDO
 			break;
 		case Estado::ESTADO_TERMINANDO: //TERMINANDO
-		    break;
+		    salirJuego = true;
 		case Estado::ESTADO_FINALIZANDO://FINALIZANDO
-			salirJuego = true;
+			break;
 		};
 		
 		SDL_Flip(screen);
