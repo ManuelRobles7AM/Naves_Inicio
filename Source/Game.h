@@ -1,5 +1,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
+#include "Nave.h"
+
 class CGame
 {
 public:
@@ -19,7 +21,11 @@ public:
 
 private:
 	void Iniciando();
+	Uint8 *keys;//Esta variable nos servira para ver si determinados teclas estan o no pulsadas
+	SDL_Event event;//La variable event de tipo evento de SDL nos servira para monitorizar el teclado
 	SDL_Surface *screen;
-	SDL_Surface *nave;
+	Nave *nave;
 	Estado estado;
+	
+
 };
