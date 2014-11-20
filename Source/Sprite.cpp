@@ -15,7 +15,7 @@ void Sprite::CargarImagen(char * path)
 {
 	imagen=SDL_LoadBMP(path);
 	SDL_SetColorKey(imagen, SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(imagen->format, 255, 0, 0));
-
+	
 	
 }
 

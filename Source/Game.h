@@ -21,10 +21,15 @@ public:
 
 private:
 	void Iniciando();
+	void MoverEnemigo();
+	bool EsLimitePantalla(Nave*objeto, int bandera);
+	
 	Uint8 *keys;//Esta variable nos servira para ver si determinados teclas estan o no pulsadas
 	SDL_Event event;//La variable event de tipo evento de SDL nos servira para monitorizar el teclado
 	SDL_Surface *screen;
 	Nave *nave;
+	Nave *enemigo;  //Creamos objeto del tipo NAVE
+	int tiempoFrameFinal;
 	Estado estado;
 	
 

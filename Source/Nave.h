@@ -5,11 +5,27 @@ class Nave{
 	Sprite* sprite;
 	int x;
 	int y;
+	int h;
+	int w;
+	bool autoMovimiento;
+	int pasoActual;
+	int pasoLimite;
 public:
 	void Mover(int posicion);
 	void Movery(int posicion);
-	Nave(SDL_Surface*screen,char *RutaImagen);//Constructor
+	Nave(SDL_Surface*screen,char *RutaImagen,int x,int y);//Constructor
+	void SetAutoMovimiento(bool autoMovimiento);
+	void SetPasoLimite(int pasos);
+	int ObtenerPasoActual();
+	void IncrementarPasoActual();
+	bool EstaColisionando(Nave * b);
 	void Pintar();
+	void Actualizar();
+	int ObtenerX();
+	int ObtenerY();
+	int ObtenerW();
+	int ObtenerH();
+
 	
 	
 
