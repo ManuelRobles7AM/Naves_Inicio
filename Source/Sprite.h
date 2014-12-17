@@ -2,6 +2,7 @@
 #define __SPRITE_H__
 #include <SDL.h>
 #include "SpriteDef.h"
+
 class Sprite
 {
 	SDL_Surface *imagen; //Imagen a manipular

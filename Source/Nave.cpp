@@ -1,91 +1,64 @@
 #include "Nave.h"
+#include "Config.h"
 
-Nave::Nave(SDL_Surface*screen, char *RutaImagen, int x, int y){
-	sprite = new Sprite(screen);
-	sprite->CargarImagen(RutaImagen);
-	h = sprite->HeightModule(0);
-	w = sprite->WidthModule(0);
-	this->x = x;
-    this->y = y;
-	autoMovimiento = false;
-	pasoLimite = 0;
-	pasoActual = 0;
-}
-void Nave::SetAutoMovimiento(bool autoMovimiento){
-	this->autoMovimiento = autoMovimiento;
-}
-void Nave::Pintar(){
-
-	sprite->PintarModulo(0, x, y);
+Nave::Nave(SDL_Surface * screen, char *RutaImagen, int x, int y, int module)
+{
+	nave = new Objeto(screen, RutaImagen, x, y, module);
+	bala = new Objeto(screen, "../Data/balas.bmp", 0, 0, MODULO_BALAS_BALA);
+	bala_enemigo = new Objeto(screen, "../Data/balas_enemigo.bmp", 0, 0, MODULO_BALAS_ENEMIGO);
+	bala_enemigo->SetVisible(false);
+	bala->SetVisible(false);
 }
 
+void Nave::Pintar()
+{
+	nave->Pintar();
+	bala->Pintar();
+	bala_enemigo->Pintar();
+	bala_enemigo->Movery(2);
+	bala->Movery(-2);
+}
 
-void Nave::Actualizar(){
-	if (autoMovimiento)
-	{
-		Mover(1);
-	}
-	if (pasoLimite>0)
-	{
-		//pasoActual++;
-		if (pasoActual >= pasoLimite)
-			pasoActual = 0;
-	}
+void Nave::Disparar()
+{
+	
+	bala->SetVisible(true);
+	bala->PonerEn(nave->ObtenerX()+nave->ObtenerW()/2, nave->ObtenerY());
 	
 }
-
-void Nave::Mover(int posicion){
-	
-	
-		x += posicion;
-	
-	
-	
-}
-void Nave::Movery(int posicion){
-	y += posicion;
-
-}
-
-int Nave::ObtenerX()
+void Nave::Disparar_Enemigo()
 {
-	return x;
+
+	bala_enemigo->SetVisible(true);
+	bala_enemigo->PonerEn(nave->ObtenerX() + nave->ObtenerW() / 2, nave->ObtenerY());
+
 }
-int Nave::ObtenerY()
+
+void Nave::Autodispara(int Balas)
 {
-	return y;
+	if ((rand() % 100) < 1)
+		Disparar_Enemigo();
 }
 
-int Nave::ObtenerW()
+void Nave::MoverAbajo()
 {
-	return w;
+	nave->Movery(5);
 }
 
-int Nave::ObtenerH()
+void Nave::MoverArriba()
 {
-	return h;
+	nave->Movery(-5);
 }
-
-void Nave::SetPasoLimite(int pasos)
+void Nave::MoverDerecha()
 {
-	this->pasoLimite = pasos;
+	nave->Mover(5);
 }
-
-int Nave::ObtenerPasoActual()
+void Nave::MoverIzquierda()
 {
-	return pasoActual;
+	nave->Mover(-5);
 }
-void Nave::IncrementarPasoActual()
+
+Objeto * Nave::ObtenerNaveObjeto()
 {
-	pasoActual++;
+	return nave;
 }
-
-//bool Nave::EstaColisionando(Nave*b)
-//{
-//
-//
-//}
-
-
-
-//"../Data/minave.bmp"

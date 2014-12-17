@@ -13,7 +13,7 @@ public:
 
 	};
 
-	Modulos modulos[1];
+	Modulos modulos[5];
 	SpriteDef();
 };
 
